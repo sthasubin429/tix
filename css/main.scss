@@ -1,0 +1,77 @@
+$colors: (
+    hour: #DD353A,
+    hour_main: #52CFD3,
+    minute: #28A745,
+    minute_main: #E40066,
+    border: darken(#D3D3D3, 10%)
+);
+
+$padding: 15px;
+$margin: 30px;
+
+$box_height:70px;
+$box_width:70px;
+
+@function getColour($color-name) {
+    @return map-get($colors , $color-name )
+}
+
+.box{
+    height: $box_height;
+    width: $box_width;
+    margin: $margin;
+    border: 7px solid getColour(border);
+    border-radius: 5%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 96%;
+    .hour1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: $margin;
+        flex: 1;
+
+        .active{
+            background-color: getColour(hour);
+        }
+    }
+
+    .hour2{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 4;
+        .active{
+            background-color: getColour(hour_main);
+        }
+
+    }
+
+    .minute1{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 4;
+        .active{
+            background-color: getColour(minute);
+        }
+    }
+
+    .minute2{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 4;
+        .active{
+            background-color: getColour(minute_main);
+        }
+    }    
+}
+
